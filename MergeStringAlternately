@@ -1,0 +1,23 @@
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        newList1 = list(word1)
+        newList2 = list(word2)
+        length1 = len(word1)
+        length2 = len(word2)
+        mergedList = []
+        if len(word1) > len(word2):
+            for i in range(len(newList2)):
+                mergedList.append(newList1[i])
+                mergedList.append(newList2[i])
+            mergedList.extend(newList1[length2 :])
+        elif len(word1) < len(word2):
+            for i in range(len(newList1)):
+                mergedList.append(newList1[i])
+                mergedList.append(newList2[i])
+            mergedList.extend(newList2[length1 :])
+        else:
+            for i in range(len(newList2)):
+                mergedList.append(newList1[i])
+                mergedList.append(newList2[i])
+        final = ''.join(mergedList)
+        return str(final)
